@@ -1,53 +1,63 @@
-
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
-    <meta charset="UTF-8">
-    <title>紫琦的JS成长记录</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="./public/style.css">
-</head>
+  <meta charset="UTF-8">
+  <title>新生大学</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity=>
+  <link rel="stylesheet" href="./public/style.css">
+  <script src="./public/vue.min.js"></script>
+  <script src="./public/all-words.js"></script>
+  </head>
+
 <body>
-<div>
-  <div class="header">
-    <div class="container">
-      <h1>Ziqi's Page </h1>
-      <h2>我们只有一个目标，成长.</h2>
-    </div>
-  </div>
-  <div class="container">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">About me</h3>
-        </div>
-        <div class="panel-body">
-             我是紫琦，喜欢阅读，喜欢打乒乓。 <br>
-            Javascript的学习，带我进入一个全新的世界，充满挑战，充满未知，也充满了成就感. <br>
-            第一次制作网页，跟着班上的高手，一步一步的学习更新.想说一句，遇见你们真好。 <br>
-            Javascript的世界，我们一起来探险吧。
-          
-        </div>
+  <div id="app">
+    <div class="main-header">
+      <div class="container">
+        <h1>JavaScript编程入门</h1>
       </div>
     </div>
-  </div>
-  <div class="container">
-      <div class="col-md-8 col-md-offset-2">
+    <div class="container">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Contact me</h3>
+            <h3 class="panel-title">我的心里话</h3>
           </div>
           <div class="panel-body">
-            <ul>
-             <li><a href="https://github.com/ziqi319">Github</a></li>
-             <li><a href="ziqi319@qq.com">Email</a></li>
-            </ul>
+            <div class="words-pannel" v-for="item in wordsList">
+              <div class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object avatar" v-bind:src="item.avatar" alt="...">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">
+                    {{ item.name }}
+                  </h4>
+                    {{ item.words }}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
-</div>
 </body>
+
 </html>
+<script>
+  // vue官网： https://cn.vuejs.org/v2/guide/
+  // 初始化Vue
+
+  // 把收集的数据放在这里
+  var wordsList = testJSON;
+
+new Vue({
+  el: '#app',   // #app 和html中div#id的 app 对应
+  data: {
+    wordsList: wordsList  // 变量wordsList可以在html使用
+  }
+});
+
+</script>
